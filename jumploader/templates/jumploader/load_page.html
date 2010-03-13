@@ -1,0 +1,21 @@
+{% load jumploader %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en">
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+    {% jumploader_applet %}
+    <div class="files"></div>
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    function reload_list(){
+        $('div.files').load('{% url jumploader_uploaded_files %}');
+    }
+    function uploaderFileStatusChanged( uploader, file ) {
+        reload_list();
+    }
+    reload_list();
+    /*]]>*/
+    </script>
+</body>
+</html>
